@@ -11,28 +11,28 @@ public class MySqrootB{
        
         String filename = "/home/dineshl/Desktop/Java-Assignments/program_1/myfile.txt";
 
-        try {
-            BufferedReader read = new BufferedReader(new FileReader(filename));
-            String line;
-            while ((line = read.readLine()) != null) {
+            try (BufferedReader read = new BufferedReader(new FileReader(filename))) {
+                String line;
+                while ((line = read.readLine()) != null) {
 
-                try 
-                {
-                  double number = Double.parseDouble(line);
-                  calculation(number);
+                    try 
+                    {
+                      double number = Double.parseDouble(line);
+                      calculation(number);
 
-                }
-                catch (Exception e) {
-                    System.out.println("Number is not present");
-                    return;
-                }
-            } 
-            read.close();           
-        }
-        catch (Exception e)
-        {
-            System.out.println("Error while reading...");
-        }
+                    }
+                    catch (Exception e) {
+                        System.out.println("Number is not present");
+                        return;
+                    }
+                } 
+                read.close();
+            }catch (Exception e)
+            {
+                System.out.println("Error while reading...");
+            }           
+        
+        
 
 }
 public static void calculation(double number){
